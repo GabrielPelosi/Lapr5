@@ -1,0 +1,33 @@
+.btn_container{
+    position: absolute;
+    top: 65px;
+    right:0px;
+    
+}
+button{
+    margin:10px;    
+}
+.menu_container{
+    position:absolute;
+    top: 75px;
+    left: 20px;
+
+}
+#parent {
+    /* This is a single-line comment */
+
+    z-index: 1;
+    text-align: center;
+    font-family: Arial, sans-serif;
+}
+
+canvas {
+    padding-left: 0;
+    padding-right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 70px;
+    display: block;
+    width: 800px;
+}
+

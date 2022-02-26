@@ -1,0 +1,15 @@
+image: mcr.microsoft.com/dotnet/sdk:5.0
+
+pipelines:
+  default:
+    - parallel:
+        - step:
+            name: Build and Test
+            caches:
+              - dotnetcore
+            script:
+              - cd BaseProject
+              - dotnet build 
+              - dotnet test
+            artifacts:
+              - linter-reports/**

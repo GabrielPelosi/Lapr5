@@ -1,0 +1,2269 @@
+{
+	"info": {
+		"_postman_id": "82a9e5e7-a548-412b-89fd-8647089ad1a2",
+		"name": "System Tests",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Primeiro ciclo de testes",
+			"item": [
+				{
+					"name": "Criar Primeiro Jogador / Post Jogador",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"\r",
+									"pm.test(\"Successful POST request\", function () {\r",
+									"    pm.expect(pm.response.code).to.be.oneOf([201, 202]);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response has a JSON body\", function () {\r",
+									"\t pm.response.to.be.json;\r",
+									"});\r",
+									"pm.test(\"Right response\", function(){\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData).to.contain({\r",
+									"        \"nome\": \"Alberto98\",\r",
+									"        \"dataNascimento\": \"07/27/1997\",\r",
+									"        \"numTelefone\": \"+351926963405\",\r",
+									"        \"email\": \"alberto98@gmail.com\",\r",
+									"        \"descBreve\": \"Gosto de tortas e bolos\",\r",
+									"        \"avatar\": \"\",\r",
+									"        \"paisResidencia\": \"Portugal\",\r",
+									"        \"localidade\": \"Porto\"\r",
+									"    }) \r",
+									"\r",
+									"    pm.globals.set('Created_Primeiro_Jogador_Id', jsonData.id);\r",
+									"});\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"Nome\": \"Alberto98\",\r\n    \"DataNascimento\": \"07/27/1997\",\r\n    \"NumTelefone\": \"+351926963405\",\r\n    \"Email\": \"alberto98@gmail.com\",\r\n    \"DescBreve\": \"Gosto de tortas e bolos\",\r\n    \"Avatar\": \"\",\r\n    \"TagsInteresse\": [\"Chocolate\",\"José\",\"C++\",\"C#\", \"Brinquedos\",\"C\"],\r\n    \"PaisResidencia\": \"Portugal\",\r\n    \"Localidade\": \"Porto\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:5001/api/Jogadores/",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"Jogadores",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create new Jogador / Post Jogador Copy 2",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"\r",
+									"pm.test(\"Successful POST request\", function () {\r",
+									"    pm.expect(pm.response.code).to.be.oneOf([201, 202]);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response has a JSON body\", function () {\r",
+									"\t pm.response.to.be.json;\r",
+									"});\r",
+									"pm.test(\"Right response\", function(){\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData).to.contain({\r",
+									"        \"nome\": \"José35\",\r",
+									"        \"dataNascimento\": \"07/27/1997\",\r",
+									"        \"numTelefone\": \"+351926963405\",\r",
+									"        \"email\": \"alberto98@gmail.com\",\r",
+									"        \"descBreve\": \"Gosto de chocolates e gomas\",\r",
+									"        \"avatar\": \"\",\r",
+									"        \"paisResidencia\": \"Portugal\",\r",
+									"        \"localidade\": \"Porto\"\r",
+									"    }) \r",
+									"\r",
+									"    pm.globals.set('Created_Segundo_Jogador_Id', jsonData.id);\r",
+									"});\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"Nome\": \"José35\",\r\n    \"DataNascimento\": \"07/27/1997\",\r\n    \"NumTelefone\": \"+351926963405\",\r\n    \"Email\": \"alberto98@gmail.com\",\r\n    \"DescBreve\": \"Gosto de chocolates e gomas\",\r\n    \"Avatar\": \"\",\r\n    \"TagsInteresse\": [\"Chocolate\",\"José\",\"C++\",\"C#\", \"Brinquedos\",\"C\"],\r\n    \"PaisResidencia\": \"Portugal\",\r\n    \"Localidade\": \"Porto\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:5001/api/Jogadores/",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"Jogadores",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create new Jogador / Post Jogador Copy",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"\r",
+									"pm.test(\"Successful POST request\", function () {\r",
+									"    pm.expect(pm.response.code).to.be.oneOf([201, 202]);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response has a JSON body\", function () {\r",
+									"\t pm.response.to.be.json;\r",
+									"});\r",
+									"pm.test(\"Right response\", function(){\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData).to.contain({\r",
+									"        \"nome\": \"João445\",\r",
+									"        \"dataNascimento\": \"07/27/1997\",\r",
+									"        \"numTelefone\": \"+351926963405\",\r",
+									"        \"email\": \"alberto98@gmail.com\",\r",
+									"        \"descBreve\": \"Gosto de programar e tomar café\",\r",
+									"        \"avatar\": \"\",\r",
+									"        \"paisResidencia\": \"Portugal\",\r",
+									"        \"localidade\": \"Porto\",\r",
+									"    }) \r",
+									"\r",
+									"    pm.globals.set('Created_Terceiro_Jogador_Id', jsonData.id);\r",
+									"});\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"Nome\": \"João445\",\r\n    \"DataNascimento\": \"07/27/1997\",\r\n    \"NumTelefone\": \"+351926963405\",\r\n    \"Email\": \"alberto98@gmail.com\",\r\n    \"DescBreve\": \"Gosto de programar e tomar café\",\r\n    \"Avatar\": \"\",\r\n    \"TagsInteresse\": [\"Java\",\"JavaScript\",\"C++\",\"C#\", \"CSHAPR\",\"C\"],\r\n    \"PaisResidencia\": \"Portugal\",\r\n    \"Localidade\": \"Porto\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:5001/api/Jogadores/",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"Jogadores",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Jogador",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Successful POST request\", function () {",
+									"    pm.expect(pm.response.code).to.be.oneOf([201, 202]);",
+									"});",
+									"",
+									"pm.test(\"Status code is 201\", function () {",
+									"    pm.response.to.have.status(201);",
+									"});",
+									"",
+									"pm.test(\"Response has a JSON body\", function () {",
+									"     pm.response.to.be.json;",
+									"});",
+									"",
+									"pm.test(\"Right response\", function(){",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData).to.contain({",
+									"        \"nome\": \"Jogador1\",",
+									"        \"dataNascimento\": \"2000-07-27T00:00:00\",",
+									"        \"numTelefone\": \"+351912677845\",",
+									"        \"email\": \"jogador1@gmail.com\",",
+									"        \"descBreve\": \"Eu sou o Jogador 1\",",
+									"        \"avatar\": \"avatar\",",
+									"        \"paisResidencia\": \"Portugal\",",
+									"        \"localidade\": \"Porto\"",
+									"    })",
+									"    pm.globals.set(\"JogadorId\", jsonData.id);",
+									"});",
+									"",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"Nome\": \"Jogador1\",\n    \"DataNascimento\": \"2000/07/27\",\n    \"NumTelefone\": \"+351912677845\",\n    \"Email\": \"jogador1@gmail.com\",\n    \"DescBreve\":\"Eu sou o Jogador 1\",\n    \"Avatar\": \"avatar\",\n    \"TagsInteresse\": [\"Comida\",\"Guitarra\"],\n    \"PaisResidencia\": \"Portugal\",\n    \"Localidade\": \"Porto\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:5001/api/Jogadores",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"Jogadores"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Intro Req to be Approved",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response has a JSON body\", function () {\r",
+									"\t pm.response.to.be.json;\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Verificar dados da resposta\", function(){\r",
+									"    var jsonData = pm.response.json();\r",
+									"     pm.expect(jsonData).to.contain({\r",
+									"        \"bridgeUserName\": \"José35\",\r",
+									"        \"objectiveUserName\": \"João445\",\r",
+									"        \"connectionStrength\": \"33\",\r",
+									"        \"bridgeUserText\": \"ola, gostaria de conhecer seu amigo!\",\r",
+									"        \"objectiveUserText\": \"ola, gostaria de te conhecer\",\r",
+									"        \"status\": \"SENT\",\r",
+									"    }) \r",
+									"\r",
+									"    pm.globals.set(\"Id_Pedido_Introducao_Criado_Para_Aprovar\",jsonData.id);\r",
+									"})"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"RequestingUserID\": \"{{Created_Primeiro_Jogador_Id}}\",\r\n    \"BridgeUserID\": \"{{Created_Segundo_Jogador_Id}}\",\r\n    \"ObjectiveUserID\": \"{{Created_Terceiro_Jogador_Id}}\",\r\n    \"BridgeUserText\": \"ola, gostaria de conhecer seu amigo!\",\r\n    \"ObjectiveUserText\": \"ola, gostaria de te conhecer\",\r\n    \"IntroductionRequestTags\": [\"Java\",\"JavaScript\",\"C++\",\"C#\", \"CSHAPR\",\"C\"],\r\n    \"ConnectionStrength\": \"33\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:5001/api/IntroductionRequest",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"IntroductionRequest"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Intro Req to be Disapproved",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response has a JSON body\", function () {\r",
+									"\t pm.response.to.be.json;\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Verificar dados da resposta\", function(){\r",
+									"    var jsonData = pm.response.json();\r",
+									"     pm.expect(jsonData).to.contain({\r",
+									"        \"bridgeUserName\": \"José35\",\r",
+									"        \"objectiveUserName\": \"João445\",\r",
+									"        \"connectionStrength\": \"33\",\r",
+									"        \"bridgeUserText\": \"ola, gostaria de conhecer seu amigo!\",\r",
+									"        \"objectiveUserText\": \"ola, gostaria de te conhecer\",\r",
+									"        \"status\": \"SENT\",\r",
+									"    }) \r",
+									"    pm.globals.set(\"Id_Pedido_Introducao_Criado_Para_Desaprovar\",jsonData.id);\r",
+									"})"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"RequestingUserID\": \"{{Created_Primeiro_Jogador_Id}}\",\r\n    \"BridgeUserID\": \"{{Created_Segundo_Jogador_Id}}\",\r\n    \"ObjectiveUserID\": \"{{Created_Terceiro_Jogador_Id}}\",\r\n    \"BridgeUserText\": \"ola, gostaria de conhecer seu amigo!\",\r\n    \"ObjectiveUserText\": \"ola, gostaria de te conhecer\",\r\n    \"IntroductionRequestTags\": [\"Java\",\"JavaScript\",\"C++\",\"C#\", \"CSHAPR\",\"C\"],\r\n    \"ConnectionStrength\": \"33\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:5001/api/IntroductionRequest",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"IntroductionRequest"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Novo pedido de introducao para ser Aceite apos aprovado",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"pm.test(\"Response has a JSON body\", function () {\r",
+									"\t pm.response.to.be.json;\r",
+									"});\r",
+									"pm.test(\"Verificar dados da resposta\", function(){\r",
+									"    var jsonData = pm.response.json();\r",
+									"     pm.expect(jsonData).to.contain({\r",
+									"        \"bridgeUserName\": \"José35\",\r",
+									"        \"objectiveUserName\": \"João445\",\r",
+									"        \"connectionStrength\": \"33\",\r",
+									"        \"bridgeUserText\": \"ola, gostaria de conhecer seu amigo!\",\r",
+									"        \"objectiveUserText\": \"ola, gostaria de te conhecer\",\r",
+									"        \"status\": \"SENT\",\r",
+									"    }) \r",
+									"\r",
+									"    pm.globals.set(\"Id_Pedido_Introducao_Criado_Para_Aceitar\",jsonData.id);\r",
+									"})"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"RequestingUserID\": \"{{Created_Primeiro_Jogador_Id}}\",\r\n    \"BridgeUserID\": \"{{Created_Segundo_Jogador_Id}}\",\r\n    \"ObjectiveUserID\": \"{{Created_Terceiro_Jogador_Id}}\",\r\n    \"BridgeUserText\": \"ola, gostaria de conhecer seu amigo!\",\r\n    \"ObjectiveUserText\": \"ola, gostaria de te conhecer\",\r\n    \"IntroductionRequestTags\": [\"Java\",\"JavaScript\",\"C++\",\"C#\", \"CSHAPR\",\"C\"],\r\n    \"ConnectionStrength\": \"33\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:5001/api/IntroductionRequest",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"IntroductionRequest"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Novo pedido de introducao para ser Recusado apos aprovado",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"pm.test(\"Response has a JSON body\", function () {\r",
+									"\t pm.response.to.be.json;\r",
+									"});\r",
+									"pm.test(\"Verificar dados da resposta\", function(){\r",
+									"    var jsonData = pm.response.json();\r",
+									"     pm.expect(jsonData).to.contain({\r",
+									"        \"bridgeUserName\": \"José35\",\r",
+									"        \"objectiveUserName\": \"João445\",\r",
+									"        \"connectionStrength\": \"33\",\r",
+									"        \"bridgeUserText\": \"ola, gostaria de conhecer seu amigo!\",\r",
+									"        \"objectiveUserText\": \"ola, gostaria de te conhecer\",\r",
+									"        \"status\": \"SENT\",\r",
+									"    }) \r",
+									"\r",
+									"    pm.globals.set(\"Id_Pedido_Introducao_Criado_Para_Recusar\",jsonData.id);\r",
+									"})"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"RequestingUserID\": \"{{Created_Primeiro_Jogador_Id}}\",\r\n    \"BridgeUserID\": \"{{Created_Segundo_Jogador_Id}}\",\r\n    \"ObjectiveUserID\": \"{{Created_Terceiro_Jogador_Id}}\",\r\n    \"BridgeUserText\": \"ola, gostaria de conhecer seu amigo!\",\r\n    \"ObjectiveUserText\": \"ola, gostaria de te conhecer\",\r\n    \"IntroductionRequestTags\": [\"Java\",\"JavaScript\",\"C++\",\"C#\", \"CSHAPR\",\"C\"],\r\n    \"ConnectionStrength\": \"33\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:5001/api/IntroductionRequest",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"IntroductionRequest"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Listagem dos pedidos de introducao pendentes",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response has a JSON body\", function () {\r",
+									"     pm.response.to.be.json;\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Validar conteudo de resposta\", function () {\r",
+									"    let jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData[0].connectionStrength).to.eql(\"33\");\r",
+									"    pm.expect(jsonData[0].objectiveUserName).to.eql(\"João445\");\r",
+									"    pm.expect(jsonData[0].bridgeUserName).to.eql(\"José35\");\r",
+									"    pm.expect(jsonData[0].bridgeUserText).to.eql(\"ola, gostaria de conhecer seu amigo!\");\r",
+									"    pm.expect(jsonData[0].objectiveUserText).to.eql(\"ola, gostaria de te conhecer\");\r",
+									"    pm.expect(jsonData[0].status).to.eql(\"SENT\");\r",
+									"}); \r",
+									"\r",
+									"\r",
+									"\r",
+									"\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:5001/api/IntroductionRequest/pending/{{Created_Segundo_Jogador_Id}}",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"IntroductionRequest",
+								"pending",
+								"{{Created_Segundo_Jogador_Id}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Segundo ciclo de testes",
+			"item": [
+				{
+					"name": "Editar Jogador",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response has a JSON body\", function () {\r",
+									"\t pm.response.to.be.json;\r",
+									"});\r",
+									"pm.test(\"Right response\", function(){\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData).to.contain({\r",
+									"        \"nome\": \"José3589\",\r",
+									"        \"dataNascimento\": \"1999-07-27T00:00:00\",\r",
+									"        \"numTelefone\": \"+351926963405\",\r",
+									"        \"email\": \"jose12@gmail.com\",\r",
+									"        \"descBreve\": \"Gosto de chocolates e gomas\",\r",
+									"        \"avatar\": \"\",\r",
+									"        \"paisResidencia\": \"Portugal\",\r",
+									"        \"localidade\": \"Porto\"\r",
+									"    }) \r",
+									"\r",
+									"});\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"Nome\": \"José3589\",\r\n    \"DataNascimento\": \"1999/07/27\",\r\n    \"NumTelefone\": \"+351926963405\",\r\n    \"Email\": \"jose12@gmail.com\",\r\n    \"DescBreve\": \"Gosto de chocolates e gomas\",\r\n    \"Avatar\": \"\",\r\n    \"TagsInteresse\": [\"Chocolate\",\"José\",\"C++\",\"C#\", \"Brinquedos\",\"C\"],\r\n    \"PaisResidencia\": \"Portugal\",\r\n    \"Localidade\": \"Porto\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:5001/api/Jogadores/{{Created_Segundo_Jogador_Id}}",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"Jogadores",
+								"{{Created_Segundo_Jogador_Id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Editar Nome",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Successful PUT request\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"Right response\", function(){",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData).to.contain({",
+									"        \"nome\": \"Player1\"",
+									"    })",
+									"    pm.globals.set(\"JogadorId\", jsonData.id);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"Nome\": \"Player1\",\n    \"DataNascimento\": \"2000/07/27\",\n    \"NumTelefone\": \"+351912677845\",\n    \"Email\": \"jogador1@gmail.com\",\n    \"DescBreve\":\"Eu sou o Jogador 1\",\n    \"Avatar\": \"avatar\",\n    \"TagsInteresse\": [\"Comida\",\"Guitarra\"],\n    \"PaisResidencia\": \"Portugal\",\n    \"Localidade\": \"Porto\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:5001/api/Jogadores/{{JogadorId}}",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"Jogadores",
+								"{{JogadorId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Editar Data de Nascimento",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Successful PUT request\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"Right response\", function(){",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData).to.contain({",
+									"        \"dataNascimento\": \"2000-07-30T00:00:00\",",
+									"    })",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"Nome\": \"Jogador1\",\n    \"DataNascimento\": \"2000/07/30\",\n    \"NumTelefone\": \"+351912677845\",\n    \"Email\": \"jogador1@gmail.com\",\n    \"DescBreve\":\"Eu sou o Jogador 1\",\n    \"Avatar\": \"avatar\",\n    \"TagsInteresse\": [\"Comida\",\"Guitarra\"],\n    \"PaisResidencia\": \"Portugal\",\n    \"Localidade\": \"Porto\"\n\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:5001/api/Jogadores/{{JogadorId}}",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"Jogadores",
+								"{{JogadorId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Editar Número Telefone",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Successful PUT request\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"Right response\", function(){",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData).to.contain({",
+									"        \"numTelefone\": \"+351911888999\"",
+									"    })",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"Nome\": \"Jogador1\",\n    \"DataNascimento\": \"2000/07/27\",\n    \"NumTelefone\": \"+351911888999\",\n    \"Email\": \"jogador1@gmail.com\",\n    \"DescBreve\":\"Eu sou o Jogador 1\",\n    \"Avatar\": \"avatar\",\n    \"TagsInteresse\": [\"Comida\",\"Guitarra\"],\n    \"PaisResidencia\": \"Portugal\",\n    \"Localidade\": \"Porto\"\n\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:5001/api/Jogadores/{{JogadorId}}",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"Jogadores",
+								"{{JogadorId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Editar Email",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Successful PUT request\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"Right response\", function(){",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData).to.contain({",
+									"        \"email\": \"player1@gmail.com\"",
+									"    })",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"Nome\": \"Jogador1\",\n    \"DataNascimento\": \"2000/07/27\",\n    \"NumTelefone\": \"+351912677845\",\n    \"Email\": \"player1@gmail.com\",\n    \"DescBreve\":\"Eu sou o Jogador 1\",\n    \"Avatar\": \"avatar\",\n    \"TagsInteresse\": [\"Comida\",\"Guitarra\"],\n    \"PaisResidencia\": \"Portugal\",\n    \"Localidade\": \"Porto\"\n\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:5001/api/Jogadores/{{JogadorId}}",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"Jogadores",
+								"{{JogadorId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Editar Avatar",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Successful PUT request\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"Right response\", function(){",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData).to.contain({",
+									"        \"avatar\": \"avatar 2\"",
+									"    })",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"Nome\": \"Jogador1\",\n    \"DataNascimento\": \"2000/07/27\",\n    \"NumTelefone\": \"+351912677845\",\n    \"Email\": \"jogador1@gmail.com\",\n    \"DescBreve\":\"Eu sou o Jogador 1\",\n    \"Avatar\": \"avatar 2\",\n    \"TagsInteresse\": [\"Comida\",\"Guitarra\"],\n    \"PaisResidencia\": \"Portugal\",\n    \"Localidade\": \"Porto\"\n\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:5001/api/Jogadores/83c19f40-cbc0-4bb7-b52f-ef13b798a8fd",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"Jogadores",
+								"83c19f40-cbc0-4bb7-b52f-ef13b798a8fd"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Editar Descrição Breve",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Successful PUT request\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"Right response\", function(){",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData).to.contain({",
+									"        \"descBreve\": \"Eu sou o Player 1\"",
+									"    })",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"Nome\": \"Jogador1\",\n    \"DataNascimento\": \"2000/07/27\",\n    \"NumTelefone\": \"+351912677845\",\n    \"Email\": \"jogador1@gmail.com\",\n    \"DescBreve\":\"Eu sou o Player 1\",\n    \"Avatar\": \"avatar\",\n    \"TagsInteresse\": [\"Comida\",\"Guitarra\"],\n    \"PaisResidencia\": \"Portugal\",\n    \"Localidade\": \"Porto\"\n\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:5001/api/Jogadores/{{JogadorId}}",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"Jogadores",
+								"{{JogadorId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Editar País",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Successful PUT request\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"Right response\", function(){",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData).to.contain({",
+									"        \"paisResidencia\": \"Espanha\"",
+									"    })",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"Nome\": \"Jogador1\",\n    \"DataNascimento\": \"2000/07/27\",\n    \"NumTelefone\": \"+351912677845\",\n    \"Email\": \"jogador1@gmail.com\",\n    \"DescBreve\":\"Eu sou o Jogador 1\",\n    \"Avatar\": \"avatar\",\n    \"TagsInteresse\": [\"Comida\",\"Guitarra\"],\n    \"PaisResidencia\": \"Espanha\",\n    \"Localidade\": \"Porto\"\n\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:5001/api/Jogadores/{{JogadorId}}",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"Jogadores",
+								"{{JogadorId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Editar Localidade",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Successful PUT request\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"Right response\", function(){",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData).to.contain({",
+									"        \"localidade\": \"Coimbra\"",
+									"    })",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"Nome\": \"Jogador1\",\n    \"DataNascimento\": \"2000/07/27\",\n    \"NumTelefone\": \"+351912677845\",\n    \"Email\": \"jogador1@gmail.com\",\n    \"DescBreve\":\"Eu sou o Jogador 1\",\n    \"Avatar\": \"avatar\",\n    \"TagsInteresse\": [\"Comida\",\"Guitarra\"],\n    \"PaisResidencia\": \"Portugal\",\n    \"Localidade\": \"Coimbra\"\n\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:5001/api/Jogadores/{{JogadorId}}",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"Jogadores",
+								"{{JogadorId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Editar Estado de humor",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:5001/api/Jogadores/",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"Jogadores",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Aprovar Intro Request para recusar futuramente",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"pm.test(\"Response has a JSON body\", function () {",
+									"\t pm.response.to.be.json;",
+									"});",
+									"pm.test(\"Verificar dados da resposta\", function(){",
+									"    var jsonData = pm.response.json();",
+									"     pm.expect(jsonData).to.contain({",
+									"        \"bridgeUserName\": \"José3589\",",
+									"        \"objectiveUserName\": \"João445\",",
+									"        \"connectionStrength\": \"33\",",
+									"        \"bridgeUserText\": \"ola, gostaria de conhecer seu amigo!\",",
+									"        \"objectiveUserText\": \"ola, gostaria de te conhecer\",",
+									"        \"status\": \"BRIDGE_USER_ACCEPTED\",",
+									"    }) ",
+									"",
+									"    pm.globals.set(\"Id_Pedido_Introducao_Criado_Primeiro\",jsonData.id);",
+									"})"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"Flag\": true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:5001/api/IntroductionRequest/updatestatus/{{Id_Pedido_Introducao_Criado_Para_Recusar}}",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"IntroductionRequest",
+								"updatestatus",
+								"{{Id_Pedido_Introducao_Criado_Para_Recusar}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Aprovar Intro Request",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"Response has a JSON body\", function () {",
+									"\t pm.response.to.be.json;",
+									"});",
+									"",
+									"pm.test(\"Verificar dados da resposta\", function(){",
+									"    var jsonData = pm.response.json();",
+									"     pm.expect(jsonData).to.contain({",
+									"        \"bridgeUserName\": \"José3589\",",
+									"        \"objectiveUserName\": \"João445\",",
+									"        \"connectionStrength\": \"33\",",
+									"        \"bridgeUserText\": \"ola, gostaria de conhecer seu amigo!\",",
+									"        \"objectiveUserText\": \"ola, gostaria de te conhecer\",",
+									"        \"status\": \"BRIDGE_USER_ACCEPTED\",",
+									"    }) ",
+									"    pm.globals.set(\"Id_Pedido_Introducao_Criado_Primeiro\",jsonData.id);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"Flag\": true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:5001/api/IntroductionRequest/updatestatus/{{Id_Pedido_Introducao_Criado_Para_Aprovar}}",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"IntroductionRequest",
+								"updatestatus",
+								"{{Id_Pedido_Introducao_Criado_Para_Aprovar}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Listagem pedidos de ligacao pendentes",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response has a JSON body\", function () {\r",
+									"     pm.response.to.be.json;\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Validar conteudo de resposta\", function () {\r",
+									"    let jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData[0].connectionStrength).to.eql(\"33\");\r",
+									"    pm.expect(jsonData[0].objectiveUserName).to.eql(\"João445\");\r",
+									"    pm.expect(jsonData[0].bridgeUserName).to.eql(\"José3589\");\r",
+									"    pm.expect(jsonData[0].bridgeUserText).to.eql(\"ola, gostaria de conhecer seu amigo!\");\r",
+									"    pm.expect(jsonData[0].objectiveUserText).to.eql(\"ola, gostaria de te conhecer\");\r",
+									"    pm.expect(jsonData[0].status).to.eql(\"BRIDGE_USER_ACCEPTED\");\r",
+									"}); "
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:5001/api/IntroductionRequest/approved/{{Created_Terceiro_Jogador_Id}}",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"IntroductionRequest",
+								"approved",
+								"{{Created_Terceiro_Jogador_Id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Desaprovar Intro Request",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"Response has a JSON body\", function () {",
+									"\t pm.response.to.be.json;",
+									"});",
+									"",
+									"pm.test(\"Right response\", function(){",
+									"    var jsonData = pm.response.json();",
+									"     pm.expect(jsonData).to.contain({",
+									"         \"bridgeUserName\": \"José3589\",",
+									"        \"objectiveUserName\": \"João445\",",
+									"        \"connectionStrength\": \"33\",",
+									"        \"bridgeUserText\": \"ola, gostaria de conhecer seu amigo!\",",
+									"        \"objectiveUserText\": \"ola, gostaria de te conhecer\",",
+									"        \"status\": \"BRIDGE_USER_REJECTED\"",
+									"    }) ",
+									"    pm.globals.set(\"Id_Pedido_Introducao_Criado_Primeiro\",jsonData.id);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"Flag\": false\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:5001/api/IntroductionRequest/updatestatus/{{Id_Pedido_Introducao_Criado_Para_Desaprovar}}",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"IntroductionRequest",
+								"updatestatus",
+								"{{Id_Pedido_Introducao_Criado_Para_Desaprovar}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Aceitar Introdução",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Successful GET request\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Right response\", function(){\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData).to.contain({\r",
+									"        \"status\":\"OBJECTIVE_USER_ACCEPTED\"\r",
+									"    })\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"Flag\": true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:5001/api/IntroductionRequest/updatestatusar/{{Id_Pedido_Introducao_Criado_Para_Aprovar}}",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"IntroductionRequest",
+								"updatestatusar",
+								"{{Id_Pedido_Introducao_Criado_Para_Aprovar}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Recusar introdução aprovada anteriormente",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Successful GET request\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Right response\", function(){\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData).to.contain({\r",
+									"        \"status\":\"OBJECTIVE_USER_REJECTED\"\r",
+									"    })\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"Flag\": false\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:5001/api/IntroductionRequest/updatestatusar/{{Id_Pedido_Introducao_Criado_Para_Recusar}}",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"IntroductionRequest",
+								"updatestatusar",
+								"{{Id_Pedido_Introducao_Criado_Para_Recusar}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Editar Força e Tags",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Successful GET request\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Right response\", function(){\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData).to.contain({\r",
+									"        \"forcaLigacao\":\"35\",\r",
+									"    })\r",
+									"    pm.expect(jsonData.tagsLigacao).to.eql([\"C#\", \"Java\", \"JavaScript\"]);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"ForcaLigacao\": \"35\",\r\n    \"TagsLigacao\": [\"C#\", \"Java\",\"JavaScript\"]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:5001/api/Ligacoes/forcatags/07f4d0c7-bdce-47f8-b6f4-0e7cbfe64290",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"Ligacoes",
+								"forcatags",
+								"07f4d0c7-bdce-47f8-b6f4-0e7cbfe64290"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Segundo Jogador",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Successful DELETE request\", function () {",
+									"    pm.expect(pm.response.code).to.be.oneOf([200]);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:5001/api/Jogadores/{{Created_Segundo_Jogador_Id}}",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"Jogadores",
+								"{{Created_Segundo_Jogador_Id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Tag Cloud User",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:5001/api/Jogadores/my-tags-tagcloud/{{Created_Segundo_Jogador_Id}}",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"Jogadores",
+								"my-tags-tagcloud",
+								"{{Created_Segundo_Jogador_Id}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Terceiro ciclo de testes",
+			"item": [
+				{
+					"name": "Buscar Primeiro jogador criado pelo id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:5001/api/Jogadores/{{Created_Primeiro_Jogador_Id}}",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"Jogadores",
+								"{{Created_Primeiro_Jogador_Id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "User by new Name",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Successful GET request\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"Right response\", function(){",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData).to.contain({",
+									"        \"nome\": \"Player1\"",
+									"    })",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:5001/api/Jogadores/{{JogadorId}}",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"Jogadores",
+								"{{JogadorId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "User by new Email",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Successful GET request\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"Right response\", function(){",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData).to.contain({",
+									"        \"email\": \"player1@gmail.com\"",
+									"    })",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:5001/api/Jogadores/{{JogadorId}}",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"Jogadores",
+								"{{JogadorId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Jogador By Id",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Successful GET request\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"Right response\", function(){",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData).to.contain({",
+									"        \"nome\": \"Jogador1\",",
+									"        \"dataNascimento\": \"2000-07-27T00:00:00\",",
+									"        \"numTelefone\": \"+351912677845\",",
+									"        \"email\": \"jogador1@gmail.com\",",
+									"        \"descBreve\": \"Eu sou o Jogador 1\",",
+									"        \"avatar\": \"avatar\",",
+									"        \"paisResidencia\": \"Portugal\",",
+									"        \"localidade\": \"Porto\"",
+									"    })",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:5001/api/Jogadores/",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"Jogadores",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Sugestão de jogadores",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Successful GET request\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response has a JSON body\", function () {\r",
+									"     pm.response.to.be.json;\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Right response\", function(){\r",
+									"    let jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData[0].nome).to.eql(\"João445\");\r",
+									"    pm.expect(jsonData[0].dataNascimento).to.eql(\"1999-07-27T00:00:00\");\r",
+									"    pm.expect(jsonData[0].numTelefone).to.eql(\"+351926963405\");\r",
+									"    pm.expect(jsonData[0].email).to.eql(\"alberto98@gmail.com\");\r",
+									"    pm.expect(jsonData[0].descBreve).to.eql(\"Gosto de programar e tomar café\");\r",
+									"    pm.expect(jsonData[0].avatar).to.eql(\"\");\r",
+									"    pm.expect(jsonData[0].paisResidencia).to.eql(\"Portugal\");\r",
+									"    pm.expect(jsonData[0].localidade).to.eql(\"Porto\");\r",
+									"    pm.expect(jsonData[1].nome).to.eql(\"Alberto98\");\r",
+									"    pm.expect(jsonData[1].dataNascimento).to.eql(\"1999-07-27T00:00:00\");\r",
+									"    pm.expect(jsonData[1].numTelefone).to.eql(\"+351926963405\");\r",
+									"    pm.expect(jsonData[1].email).to.eql(\"alberto98@gmail.com\");\r",
+									"    pm.expect(jsonData[1].descBreve).to.eql(\"Gosto de tortas e bolos\");\r",
+									"    pm.expect(jsonData[1].avatar).to.eql(\"\");\r",
+									"    pm.expect(jsonData[1].paisResidencia).to.eql(\"Portugal\");\r",
+									"    pm.expect(jsonData[1].localidade).to.eql(\"Porto\");\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://localhost:5001/api/Jogadores/sugestion/{{Created_Segundo_Jogador_Id}}",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"Jogadores",
+								"sugestion",
+								"{{Created_Segundo_Jogador_Id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Listagem das ligacoes",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Successful GET request\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response has a JSON body\", function () {\r",
+									"     pm.response.to.be.json;\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Right response\", function(){\r",
+									"    let jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData[0].jogador1UserName).to.eql(\"João445\");\r",
+									"    pm.expect(jsonData[0].jogador2UserName).to.eql(\"Alberto98\");\r",
+									"    pm.expect(jsonData[0].forcaLigacao).to.eql(\"33\");\r",
+									"    pm.expect(jsonData[0].tagsLigacao).to.eql([\"Java\",\r",
+									"            \"JavaScript\",\r",
+									"            \"C++\",\r",
+									"            \"C#\",\r",
+									"            \"CSHAPR\",\r",
+									"            \"C\"]);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://localhost:5001/api/Ligacoes",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"Ligacoes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "tamanho rede",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Successful GET request\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"Right response\", function(){",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData).to.contain({",
+									"        \"tamanho\": 10,",
+									"        \"jogador\": \"Maria\"",
+									"    })",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:5001/api/tamanho/2ee68b39-d538-45ec-8769-1611a52f2186",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"tamanho",
+								"2ee68b39-d538-45ec-8769-1611a52f2186"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Segundo Deleted Jogador",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Successful DELETE request\", function () {",
+									"    pm.expect(pm.response.code).to.be.oneOf([404]);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:5001/api/Jogadores/{{Created_Segundo_Jogador_Id}}",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"Jogadores",
+								"{{Created_Segundo_Jogador_Id}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "posts/comments",
+			"item": [
+				{
+					"name": "Create post",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"\r",
+									"pm.test(\"Successful POST request\", function () {\r",
+									"    pm.expect(pm.response.code).to.be.oneOf([200,201, 202]);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response has a JSON body\", function () {\r",
+									"\t pm.response.to.be.json;\r",
+									"});\r",
+									"pm.test(\"Right response\", function(){\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData).to.contain({\r",
+									"        \"authorId\": \"teste12\",\r",
+									"        \"content\": \"Eu adoro andar de bicicleta, me sinto livre como um atleta\",\r",
+									"    }) \r",
+									"    pm.expect(jsonData.tags[0]).to.eql(\"esporte\");\r",
+									"    pm.expect(jsonData.tags[1]).to.eql(\"andar\");\r",
+									"    pm.expect(jsonData.tags[2]).to.eql(\"bicicleta\");\r",
+									"    pm.expect(jsonData.tags[3]).to.eql(\"brincar\");\r",
+									"\r",
+									"    pm.expect(jsonData.likes).to.eql([]);\r",
+									"    pm.expect(jsonData.dislikes).to.eql([]);\r",
+									"    pm.expect(jsonData.comments).to.eql([]);\r",
+									"\r",
+									"    pm.globals.set('Created_Post', jsonData.id);\r",
+									"});\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"authorId\": \"teste12\",\r\n    \"content\": \"Eu adoro andar de bicicleta, me sinto livre como um atleta\",\r\n    \"tags\": [\"esporte\",\"andar\",\"bicicleta\", \"brincar\"]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3001/api/posts",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"posts"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Comment",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"\r",
+									"pm.test(\"Successful POST request\", function () {\r",
+									"    pm.expect(pm.response.code).to.be.oneOf([200, 201, 202]);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response has a JSON body\", function () {\r",
+									"\t pm.response.to.be.json;\r",
+									"});\r",
+									"pm.test(\"Right response\", function(){\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData).to.contain({\r",
+									"        \"userId\": \"testes1245\",\r",
+									"        \"name\": \"TesteNome\",\r",
+									"        \"avatar\": \"testesteAvatar\",\r",
+									"        \"text\": \"Eu também adoro!\"\r",
+									"    }) \r",
+									"\r",
+									"    pm.expect(jsonData.tags[0]).to.eql(\"bicicleta\");\r",
+									"    pm.expect(jsonData.tags[1]).to.eql(\"adoro\");\r",
+									"\r",
+									"    pm.expect(jsonData.likes).to.eql([]);\r",
+									"    pm.expect(jsonData.dislikes).to.eql([]);\r",
+									"\r",
+									"    pm.globals.set('Created_Comment_To_Post', jsonData.id);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"userId\": \"testes1245\",\r\n    \"postId\": \"{{Created_Post}}\",\r\n    \"name\": \"TesteNome\",\r\n    \"avatar\": \"testesteAvatar\",\r\n    \"text\": \"Eu também adoro!\",\r\n    \"tags\": [\"bicicleta\",\"adoro\"]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3001/api/comments",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"comments"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add Reaction Dislike Post",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Successful POST request\", function () {\r",
+									"    pm.expect(pm.response.code).to.be.oneOf([200, 201, 202]);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response has a JSON body\", function () {\r",
+									"\t pm.response.to.be.json;\r",
+									"});\r",
+									"pm.test(\"Right response\", function(){\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData).to.contain({\r",
+									"        \"authorId\": \"teste12\",\r",
+									"        \"content\": \"Eu adoro andar de bicicleta, me sinto livre como um atleta\",\r",
+									"    }) \r",
+									"    pm.expect(jsonData.tags[0]).to.eql(\"esporte\");\r",
+									"    pm.expect(jsonData.tags[1]).to.eql(\"andar\");\r",
+									"\r",
+									"    pm.expect(jsonData.likes).to.eql([]);\r",
+									"    pm.expect(jsonData.dislikes[0]).to.eql({});\r",
+									"\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"parentId\": \"{{Created_Post}}\",\r\n    \"authorId\": \"tete\",\r\n    \"reaction\": \"DISLIKE\"\r\n\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3001/api/posts/reaction",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"posts",
+								"reaction"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add Reaction Like Post",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Successful POST request\", function () {\r",
+									"    pm.expect(pm.response.code).to.be.oneOf([200, 201, 202]);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response has a JSON body\", function () {\r",
+									"\t pm.response.to.be.json;\r",
+									"});\r",
+									"pm.test(\"Right response\", function(){\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData).to.contain({\r",
+									"        \"authorId\": \"teste12\",\r",
+									"        \"content\": \"Eu adoro andar de bicicleta, me sinto livre como um atleta\",\r",
+									"\r",
+									"    }) \r",
+									"\r",
+									"    pm.expect(jsonData.tags[0]).to.eql(\"esporte\");\r",
+									"    pm.expect(jsonData.tags[1]).to.eql(\"andar\");\r",
+									"\r",
+									"    pm.expect(jsonData.likes).to.eql([]);\r",
+									"    pm.expect(jsonData.dislikes[0]).to.eql({\"reaction\": \"DISLIKE\"});\r",
+									"\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"parentId\": \"{{Created_Post}}\",\r\n    \"authorId\": \"tete\",\r\n    \"reaction\": \"DLIKE\"\r\n\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3001/api/posts/reaction",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"posts",
+								"reaction"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add Reaction Like Comment",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"\r",
+									"pm.test(\"Successful POST request\", function () {\r",
+									"    pm.expect(pm.response.code).to.be.oneOf([200, 201, 202]);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response has a JSON body\", function () {\r",
+									"\t pm.response.to.be.json;\r",
+									"});\r",
+									"pm.test(\"Right response\", function(){\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData).to.contain({\r",
+									"        \"userId\": \"testes1245\",\r",
+									"        \"name\": \"TesteNome\",\r",
+									"        \"avatar\": \"testesteAvatar\",\r",
+									"        \"text\": \"Eu também adoro!\"\r",
+									"    }) \r",
+									"\r",
+									"    pm.expect(jsonData.tags[0]).to.eql(\"bicicleta\");\r",
+									"    pm.expect(jsonData.tags[1]).to.eql(\"adoro\");\r",
+									"\r",
+									"    pm.expect(jsonData.likes[0]).to.eql({ \"userId\": \"tete\", \"reaction\": \"LIKE\"});\r",
+									"    pm.expect(jsonData.dislikes).to.eql([]);\r",
+									"\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"parentId\": \"{{Created_Comment_To_Post}}\",\r\n    \"authorId\": \"tete\",\r\n    \"reaction\": \"LIKE\"\r\n\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3001/api/comments/reaction",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"comments",
+								"reaction"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add Reaction Dislike Comment",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Successful POST request\", function () {\r",
+									"    pm.expect(pm.response.code).to.be.oneOf([200, 201, 202]);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response has a JSON body\", function () {\r",
+									"\t pm.response.to.be.json;\r",
+									"});\r",
+									"pm.test(\"Right response\", function(){\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData).to.contain({\r",
+									"        \"userId\": \"testes1245\",\r",
+									"        \"name\": \"TesteNome\",\r",
+									"        \"avatar\": \"testesteAvatar\",\r",
+									"        \"text\": \"Eu também adoro!\"\r",
+									"    }) \r",
+									"\r",
+									"    pm.expect(jsonData.tags[0]).to.eql(\"bicicleta\");\r",
+									"    pm.expect(jsonData.tags[1]).to.eql(\"adoro\");\r",
+									"\r",
+									"    pm.expect(jsonData.likes).to.eql([]);\r",
+									"\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"parentId\": \"{{Created_Comment_To_Post}}\",\r\n    \"authorId\": \"tete\",\r\n    \"reaction\": \"DISLIKE\"\r\n\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3001/api/comments/reaction",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"comments",
+								"reaction"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
