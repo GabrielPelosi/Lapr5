@@ -1,6 +1,6 @@
 # Lapr5
 
-## Wiki
+-------------
 
 # AIT
 Esta wiki é o Software Architecture Document (SAD)/Documento de Arquitetura de Software (DAS) da aplicação solicitada pela Graphs4Social, e desenvolvida no contexto do 5º semestre da LEI em 2020-2021.
